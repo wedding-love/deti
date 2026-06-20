@@ -126,6 +126,7 @@
       padding-bottom: 0;
       overflow: hidden;
       overflow-x: hidden;
+      margin-bottom: -5px;
     }
 
     .screen-second {
@@ -170,15 +171,8 @@
       min-height: auto;
     }
 
-    .screen-seventh {
-      background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
-      padding: 50px 28px 40px 28px;
-      justify-content: center;
-      align-items: center;
-      min-height: auto;
-    }
-
-    .screen-eighth {
+    /* ============ ОБЪЕДИНЕННЫЙ БЛОК: АНКЕТА + КОНТАКТЫ ============ */
+    .screen-final {
       background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
       padding: 50px 28px 60px 28px;
       justify-content: center;
@@ -193,14 +187,14 @@
       flex-direction: column;
       justify-content: center;
       width: 100%;
-      padding: 5vh 24px 0;
+      padding: 4vh 24px 0;
       text-align: center;
     }
 
     .title-block {
       text-align: center;
       width: 100%;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .sub-title {
@@ -234,7 +228,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .dialog-container {
@@ -272,7 +266,7 @@
     }
 
     .hero-image-section {
-      flex: 1.4;
+      flex: 1.2;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -298,7 +292,7 @@
       filter: drop-shadow(0 4px 10px rgba(60, 42, 60, 0.08));
       border-radius: 8px 8px 0 0;
       display: block;
-      transform: translateY(5px);
+      transform: translateY(3px);
       transition: all .4s ease;
     }
 
@@ -817,18 +811,18 @@
       opacity: 0.95;
     }
 
-    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА ГОСТЯ ============ */
-    .guestbook-container {
+    /* ============ ОБЪЕДИНЕННЫЙ БЛОК: АНКЕТА + КОНТАКТЫ ============ */
+    .final-container {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 30px;
     }
 
-    .guestbook-title {
+    .final-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
@@ -839,7 +833,7 @@
       text-align: center;
     }
 
-    .guestbook-subtitle {
+    .final-subtitle {
       font-family: "Bad Script", cursive;
       font-weight: 400;
       font-size: clamp(1.05rem, 4vw, 1.4rem);
@@ -850,7 +844,7 @@
       padding: 0 8px;
     }
 
-    .guest-form {
+    .final-form {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -1004,35 +998,35 @@
       transform: scale(1.02);
     }
 
-    /* ============ ВОСЬМОЙ ЭКРАН: КОНТАКТЫ ============ */
-    .contacts-container {
+    /* ============ КОНТАКТЫ (внутри общего блока) ============ */
+    .final-contacts {
       width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 250, 216, 0.25);
     }
 
-    .contacts-title {
+    .final-contacts-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(2rem, 6.5vw, 2.6rem);
+      font-size: clamp(1.8rem, 5.5vw, 2.2rem);
       color: #fefad8;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       text-align: center;
     }
 
-    .contacts-text {
+    .final-contacts-text {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1.05rem, 4vw, 1.4rem);
+      font-size: clamp(1rem, 3.8vw, 1.3rem);
       color: #fefad8;
       text-align: center;
-      line-height: 1.8;
+      line-height: 1.6;
       letter-spacing: 0.3px;
       padding: 0 8px;
     }
@@ -1044,7 +1038,7 @@
       gap: 2px;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      padding: 8px 16px;
+      padding: 6px 16px;
       width: 100%;
       max-width: 320px;
       text-align: center;
@@ -1139,15 +1133,18 @@
 
     /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
     @media (max-width: 480px) {
+      .screen-first {
+        margin-bottom: -4px;
+      }
       .first-content {
-        padding: 3.5vh 14px 0;
+        padding: 3vh 14px 0;
       }
       .title-block {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .dialog-container { gap: 6px; }
       .dialog-area {
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
       .calendar-image-wrapper { max-width: 280px; }
       .location-photo-wrapper { max-width: 300px; }
@@ -1157,8 +1154,7 @@
       .screen-fourth { padding: 35px 16px 45px; }
       .screen-fifth { padding: 40px 16px 30px; }
       .screen-sixth { padding: 40px 16px 50px 16px; }
-      .screen-seventh { padding: 40px 16px 35px 16px; }
-      .screen-eighth { padding: 40px 16px 50px 16px; }
+      .screen-final { padding: 40px 16px 50px 16px; }
       .location-img { border-width: 2px; }
       .timing-section-title { margin-bottom: 14px; }
       .timing-item { padding: 12px 14px; gap: 10px; }
@@ -1169,7 +1165,7 @@
       .gift-image { width: min(90%, 280px); }
       .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
       .submit-btn { min-width: 180px; padding: 14px 30px; font-size: 1rem; margin-bottom: 10px; }
-      .guestbook-container { gap: 16px; }
+      .final-container { gap: 22px; }
       .big-date { font-size: clamp(2.8rem, 11vw, 3.8rem); }
       .location-content { gap: 16px; }
       .invitation-greeting { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
@@ -1179,7 +1175,7 @@
       .kids-marquee-track span { font-size: clamp(0.7rem, 2vw, 0.85rem); padding: 0 25px 0 0; }
       .scroll-container { padding: 0; }
       .images-row { padding: 0; }
-      .full-width-heart { max-width: 380px; padding: 0 8px; }
+      .full-width-heart { max-width: 360px; padding: 0 8px; }
       .location-btn { padding: 12px 26px; font-size: 1rem; }
       .color-square { width: 44px; height: 44px; }
       .color-swatches { gap: 12px; }
@@ -1189,25 +1185,25 @@
         margin-right: -14px; 
         width: calc(100% + 28px); 
       }
-      .guest-form { gap: 16px; }
+      .final-form { gap: 16px; }
       .hero-image-section {
         padding: 0 12px 0;
       }
       .kids-image { max-height: none; }
-      .guestbook-subtitle { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
+      .final-subtitle { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
       .contacts-item { padding: 6px 12px; }
       .contacts-number { font-size: clamp(1rem, 3.8vw, 1.2rem); }
       .contacts-label { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
-      .contacts-container { gap: 14px; }
+      .final-contacts { gap: 6px; padding-top: 6px; }
+      .final-contacts-title { font-size: clamp(1.5rem, 4.5vw, 1.8rem); }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
       .screen-first {
-        min-height: 80vh;
-        min-height: 80dvh;
+        margin-bottom: -4px;
       }
       .first-content {
-        padding: 4vh 22px 0;
+        padding: 3.5vh 22px 0;
       }
       .screen-second { padding: 25px 22px 28px; }
       .invitation-content { gap: 12px; padding-top: 18px; }
@@ -1215,8 +1211,7 @@
       .screen-fourth { padding: 40px 22px 50px; }
       .screen-fifth { padding: 45px 22px 30px; }
       .screen-sixth { padding: 45px 22px 55px 22px; }
-      .screen-seventh { padding: 45px 22px 40px 22px; }
-      .screen-eighth { padding: 45px 22px 55px 22px; }
+      .screen-final { padding: 45px 22px 55px 22px; }
       .location-photo-wrapper { max-width: 360px; }
       .ref-image { width: 150px; height: 205px; }
       .calendar-image-wrapper { max-width: 380px; }
@@ -1229,14 +1224,14 @@
       }
       .gift-image { width: min(90%, 340px); }
       .submit-btn { margin-bottom: 12px; }
-      .full-width-heart { max-width: 420px; }
+      .final-container { gap: 26px; }
+      .full-width-heart { max-width: 400px; }
       .kids-marquee-track span { font-size: clamp(0.8rem, 2.2vw, 0.95rem); }
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
       .screen-first {
-        min-height: 80vh;
-        min-height: 80dvh;
+        margin-bottom: -4px;
       }
       .primary-title {
         font-size: 5.5rem;
@@ -1272,8 +1267,7 @@
       .screen-fourth { padding: 50px 32px 60px; }
       .screen-fifth { padding: 55px 32px 40px; }
       .screen-sixth { padding: 55px 32px 65px 32px; }
-      .screen-seventh { padding: 50px 32px 45px 32px; }
-      .screen-eighth { padding: 50px 32px 60px 32px; }
+      .screen-final { padding: 50px 32px 60px 32px; }
       .location-content { gap: 22px; }
       .dresscode-container { gap: 24px; }
       .calendar-image-wrapper { max-width: 420px; }
@@ -1286,9 +1280,10 @@
       }
       .full-width-heart { max-width: 520px; }
       .screen-first {
-        min-height: 80vh;
-        min-height: 80dvh;
+        margin-bottom: -5px;
       }
+      .final-container { gap: 30px; }
+      .final-contacts { padding-top: 20px; }
     }
   </style>
 </head>
@@ -1434,6 +1429,7 @@
               <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/B5EAD7/3d2a3d?text=🌿';">
               <img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/C9E4FF/3d2a3d?text=💎';">
               <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/F7DC6F/3d2a3d?text=🌼';">
+              <img src="5.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/E8D5B7/3d2a3d?text=🥂';">
             </div>
           </div>
         </div>
@@ -1450,13 +1446,13 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ -->
-  <section class="screen screen-seventh">
-    <div class="guestbook-container">
-      <div class="guestbook-title fade-up-item delay-1">Анкета гостя</div>
-      <div class="guestbook-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
+  <!-- ОБЪЕДИНЕННЫЙ ФИНАЛЬНЫЙ БЛОК: АНКЕТА ГОСТЯ + КОНТАКТЫ -->
+  <section class="screen screen-final">
+    <div class="final-container">
+      <div class="final-title fade-up-item delay-1">Анкета гостя</div>
+      <div class="final-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
-      <form class="guest-form fade-up-item delay-3" id="guestForm">
+      <form class="final-form fade-up-item delay-3" id="guestForm">
         <div class="form-group">
           <label class="form-label">Имя и фамилия</label>
           <input type="text" class="form-input" placeholder="" required>
@@ -1491,6 +1487,7 @@
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
       </form>
 
+      <!-- ЛЕНТА С ДАТОЙ -->
       <div class="date-marquee-wrapper fade-up-item delay-4">
         <div class="date-marquee">
           <div class="date-marquee-track">
@@ -1498,28 +1495,26 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ЭКРАН 8: КОНТАКТЫ -->
-  <section class="screen screen-eighth" style="background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);">
-    <div class="contacts-container">
-      <div class="contacts-title fade-up-item delay-1" style="color: #fefad8;">Контакты</div>
-      <div class="contacts-text fade-up-item delay-2" style="color: #fefad8;">Если у вас возникли вопросы, свяжитесь с нами:</div>
-      
-      <div class="contacts-item fade-up-item delay-3">
-        <span class="contacts-label" style="color: #fefad8;">Невеста</span>
-        <span class="contacts-number"><a href="tel:+375291234567" style="color: #fefad8;">+375 (29) 123-45-67</a></span>
-      </div>
-      
-      <div class="contacts-item fade-up-item delay-4">
-        <span class="contacts-label" style="color: #fefad8;">Жених</span>
-        <span class="contacts-number"><a href="tel:+375297654321" style="color: #fefad8;">+375 (29) 765-43-21</a></span>
-      </div>
+      <!-- КОНТАКТЫ (часть общего блока) -->
+      <div class="final-contacts fade-up-item delay-5">
+        <div class="final-contacts-title">Контакты</div>
+        <div class="final-contacts-text">Если у вас возникли вопросы, свяжитесь с нами:</div>
+        
+        <div class="contacts-item">
+          <span class="contacts-label">Невеста</span>
+          <span class="contacts-number"><a href="tel:+375291234567">+375 (29) 123-45-67</a></span>
+        </div>
+        
+        <div class="contacts-item">
+          <span class="contacts-label">Жених</span>
+          <span class="contacts-number"><a href="tel:+375297654321">+375 (29) 765-43-21</a></span>
+        </div>
 
-      <div class="final-wishes fade-up-item delay-5" style="margin-top: 20px;">
-        <div class="final-big" style="color: #fefad8;">Мы вас очень ждём</div>
-        <div class="final-small" style="color: #fefad8;">Ваши Антон и Евгения</div>
+        <div class="final-wishes" style="margin-top: 16px;">
+          <div class="final-big">Мы вас очень ждём</div>
+          <div class="final-small">Ваши Антон и Евгения</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1598,7 +1593,7 @@
   })();
 
   function submitForm() {
-    const name = document.querySelector('.guest-form .form-input')?.value;
+    const name = document.querySelector('.final-form .form-input')?.value;
     const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
     if (!name || !attendance) {
       alert('Пожалуйста, заполните имя и выберите вариант присутствия');
