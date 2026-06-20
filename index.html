@@ -16,6 +16,14 @@
       padding: 0;
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      min-height: -webkit-fill-available;
     }
 
     html {
@@ -40,12 +48,17 @@
       margin: 0;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .invitation-card {
       background-color: #fefad8;
       width: 100%;
       max-width: 620px;
-      height: 100vh;
-      height: 100dvh;
+      min-height: 100vh;
+      min-height: 100dvh;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -64,10 +77,11 @@
       height: 0;
     }
 
+    /* ============ АНИМАЦИЯ ============ */
     .fade-up-item {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1);
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.2, 0.9, 0.4, 1), transform 1s cubic-bezier(0.2, 0.9, 0.4, 1);
       will-change: transform, opacity;
     }
 
@@ -76,20 +90,23 @@
       transform: translateY(0);
     }
 
-    .fade-in-item {
+    .hero-fade {
       opacity: 0;
-      transition: opacity 0.8s ease;
+      transform: translateY(50px) scale(0.95);
+      transition: opacity 1.2s cubic-bezier(0.2, 0.9, 0.4, 1), transform 1.2s cubic-bezier(0.2, 0.9, 0.4, 1);
+      will-change: transform, opacity;
     }
 
-    .fade-in-item.revealed {
+    .hero-fade.revealed {
       opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.18s; }
-    .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.42s; }
-    .delay-5 { transition-delay: 0.54s; }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.25s; }
+    .delay-3 { transition-delay: 0.4s; }
+    .delay-4 { transition-delay: 0.55s; }
+    .delay-5 { transition-delay: 0.7s; }
 
     .screen {
       width: 100%;
@@ -101,28 +118,28 @@
     }
 
     .screen-first {
-      height: 100vh;
-      height: 100dvh;
+      min-height: var(--app-height, 100vh);
+      display: flex;
+      flex-direction: column;
       background-color: #fefad8;
       padding-bottom: 0;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      overflow-x: hidden;
     }
 
     .screen-second {
-      min-height: 100vh;
-      min-height: 100dvh;
-      justify-content: center;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       background-color: #fefad8;
-      padding: 60px 28px 50px;
-      gap: 24px;
+      padding: 30px 28px 30px;
+      min-height: auto;
+      margin-top: 0;
     }
 
     .screen-third {
       background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
-      padding: 60px 28px;
+      padding: 50px 28px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -138,7 +155,7 @@
 
     .screen-fifth {
       background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
-      padding: 60px 28px 50px;
+      padding: 50px 28px 35px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -152,9 +169,10 @@
       min-height: auto;
     }
 
-    .screen-seventh {
+    /* ============ ОБЪЕДИНЕННЫЙ БЛОК: АНКЕТА + КОНТАКТЫ ============ */
+    .screen-final {
       background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
-      padding: 40px 28px 50px 28px;
+      padding: 50px 28px 60px 28px;
       justify-content: center;
       align-items: center;
       min-height: auto;
@@ -162,26 +180,26 @@
 
     /* ============ ПЕРВЫЙ ЭКРАН ============ */
     .first-content {
-      flex: 0 0 auto;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 100%;
-      padding: 2vh 24px 0;
+      padding: 8vh 24px 0;
       text-align: center;
     }
 
     .title-block {
       text-align: center;
       width: 100%;
-      margin: 0 0 0.3vh;
+      margin-bottom: 30px;
     }
 
     .sub-title {
       display: block;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1rem, 4vw, 1.6rem);
+      font-size: clamp(1.3rem, 5vw, 1.9rem);
       color: #c9a8cc;
       text-transform: none;
       letter-spacing: 2px;
@@ -193,7 +211,7 @@
       display: block;
       font-family: "Caveat", "Comic Sans MS", cursive;
       font-weight: 400;
-      font-size: clamp(3rem, 13vw, 5.8rem);
+      font-size: clamp(3.8rem, 15vw, 6.5rem);
       color: #c9a8cc;
       line-height: 0.9;
       letter-spacing: 1px;
@@ -208,7 +226,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0.2vh 0 0.5vh;
+      margin-bottom: 20px;
     }
 
     .dialog-container {
@@ -225,7 +243,7 @@
       font-family: "Marck Script", "Brush Script MT", cursive;
       font-weight: 400;
       font-style: italic;
-      font-size: clamp(0.8rem, 3.2vw, 1.2rem);
+      font-size: clamp(1.1rem, 4.2vw, 1.6rem);
       color: #c9a8cc;
       line-height: 1.3;
       letter-spacing: 0.3px;
@@ -246,18 +264,18 @@
     }
 
     .hero-image-section {
-      flex: 1;
+      flex: 1.8;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: flex-end;
       min-height: 0;
-      padding: 0 12px;
+      padding: 0 12px 0;
       width: 100%;
     }
 
     .full-width-heart {
       width: 100%;
-      max-width: 500px;
+      max-width: 540px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -267,44 +285,61 @@
     .kids-image {
       width: 100%;
       height: auto;
-      max-height: 100%;
+      max-height: none;
       object-fit: contain;
       filter: drop-shadow(0 4px 10px rgba(60, 42, 60, 0.08));
       border-radius: 8px 8px 0 0;
       display: block;
+      transform: translateY(5px);
+      transition: all .4s ease;
     }
 
-    .marquee-ribbon {
-      flex: 0 0 auto;
-      width: 100%;
-      background-color: #c9a8cc;
+    .kids-image:hover {
+      transform: translateY(0);
+    }
+
+    /* ============ БЕГУЩАЯ СТРОКА "ВЫ ПРИГЛАШЕНЫ" ============ */
+    .kids-marquee {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       overflow: hidden;
-      padding: 10px 0;
+      background: #c9a8cc;
+      padding: 12px 0;
+      margin-top: 0;
+      flex-shrink: 0;
       position: relative;
+      opacity: 1 !important;
+      transform: none !important;
     }
 
-    .marquee-track {
+    .kids-marquee-track {
       display: flex;
-      white-space: nowrap;
-      will-change: transform;
-      animation: marqueeScroll 24s linear infinite;
       width: max-content;
+      animation: marqueeScroll 60s linear infinite;
+      padding: 0;
+      margin: 0;
+      will-change: transform;
     }
 
-    .marquee-track span {
-      font-family: "Marck Script", "Brush Script MT", cursive;
-      font-weight: 400;
+    .kids-marquee-track span {
       color: #fefad8;
-      font-size: clamp(0.7rem, 2vw, 0.95rem);
-      text-transform: none;
-      letter-spacing: 1px;
-      padding-right: 48px;
+      font-family: "Marck Script", cursive;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      padding: 0 40px 0 0;
+      white-space: nowrap;
+      text-transform: uppercase;
       display: inline-block;
+      letter-spacing: 2px;
     }
 
     @keyframes marqueeScroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     /* ============ ВТОРОЙ ЭКРАН: ПРИГЛАШЕНИЕ ============ */
@@ -312,20 +347,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
+      justify-content: flex-end;
+      gap: 14px;
       width: 100%;
       max-width: 520px;
       margin: 0 auto;
+      padding-top: 20px;
+      padding-bottom: 10px;
     }
 
     .invitation-greeting {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1.2rem, 4vw, 1.7rem);
+      font-size: clamp(1.4rem, 5vw, 2rem);
       color: #c9a8cc;
       text-align: center;
-      line-height: 1.6;
+      line-height: 1.9;
       width: 100%;
       letter-spacing: 1px;
       padding: 0 8px;
@@ -338,7 +375,7 @@
     .big-date {
       font-family: "Caveat", "Comic Sans MS", cursive;
       font-weight: 400;
-      font-size: clamp(2.8rem, 11vw, 4.8rem);
+      font-size: clamp(3.5rem, 13vw, 5.5rem);
       color: #c9a8cc;
       text-align: center;
       letter-spacing: 4px;
@@ -353,7 +390,7 @@
       width: 100%;
       padding: 0 16px;
       max-width: 420px;
-      margin: 0 auto;
+      margin: 0 auto 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -362,10 +399,10 @@
     .calendar-img {
       width: 100%;
       height: auto;
+      max-height: none;
       display: block;
       border-radius: 0;
       object-fit: contain;
-      max-height: 45vh;
     }
 
     /* ============ ТРЕТИЙ ЭКРАН (ЛОКАЦИЯ) ============ */
@@ -374,7 +411,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 22px;
       width: 100%;
       max-width: 440px;
       margin: 0 auto;
@@ -384,7 +421,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.4rem, 5vw, 1.7rem);
+      font-size: clamp(1.8rem, 6vw, 2.2rem);
       color: #fefad8;
       text-align: center;
       letter-spacing: 3px;
@@ -395,7 +432,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.8rem, 6.5vw, 2.5rem);
+      font-size: clamp(2.2rem, 7.5vw, 3rem);
       color: #fefad8;
       text-align: center;
       letter-spacing: 1px;
@@ -406,7 +443,7 @@
     .location-address {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1rem, 3.8vw, 1.4rem);
+      font-size: clamp(1.3rem, 4.5vw, 1.7rem);
       color: #fefad8;
       text-align: center;
       letter-spacing: 0.5px;
@@ -418,11 +455,11 @@
       display: inline-block;
       background: #fefad8;
       border: none;
-      padding: 12px 32px;
+      padding: 16px 40px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       letter-spacing: 2px;
       color: #c9a8cc;
       cursor: pointer;
@@ -440,7 +477,7 @@
     .location-photo-wrapper {
       position: relative;
       width: 100%;
-      max-width: 390px;
+      max-width: 420px;
       margin: 4px auto 0;
       border-radius: 0;
       box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
@@ -470,7 +507,7 @@
       border-radius: 0;
       border: 3px solid rgba(255, 250, 216, 0.95);
       box-sizing: border-box;
-      max-height: 45vh;
+      max-height: 50vh;
     }
 
     .location-img-container:hover .location-img {
@@ -499,7 +536,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.5rem, 5.5vw, 2rem);
+      font-size: clamp(2rem, 6.5vw, 2.6rem);
       color: #c9a8cc;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -508,7 +545,7 @@
     .timing-grid {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
       width: 100%;
       max-width: 440px;
       margin: 0 auto;
@@ -518,9 +555,9 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 12px 18px;
-      background: rgba(201, 168, 204, 0.10);
-      border-left: 3px solid #c9a8cc;
+      padding: 16px 20px;
+      background: rgba(201, 168, 204, 0.08);
+      border-left: 4px solid #c9a8cc;
       border-radius: 0 8px 8px 0;
       opacity: 0;
       transform: translateX(-20px);
@@ -541,26 +578,27 @@
     .timing-time {
       font-family: "Playfair Display", serif;
       font-weight: 600;
-      font-size: clamp(1rem, 3.2vw, 1.3rem);
+      font-size: clamp(1.3rem, 4vw, 1.7rem);
       color: #c9a8cc;
       white-space: nowrap;
-      min-width: 65px;
+      min-width: 70px;
     }
 
     .timing-desc {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.85rem, 2.8vw, 1.05rem);
+      font-size: clamp(1.05rem, 3.5vw, 1.3rem);
       color: #3d2a3d;
       line-height: 1.3;
     }
 
     .timing-desc span {
       display: block;
-      font-size: clamp(0.7rem, 2vw, 0.85rem);
-      color: #888;
+      font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+      color: #999;
       font-style: italic;
       font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
     }
 
     /* ============ ПЯТЫЙ ЭКРАН: ДРЕСС-КОД ============ */
@@ -579,7 +617,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.5rem, 5.5vw, 2rem);
+      font-size: clamp(2rem, 6.5vw, 2.6rem);
       color: #fefad8;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -593,9 +631,10 @@
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      padding: 32px 20px 28px;
+      padding: 32px 20px 0;
       border-radius: 0;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
     }
 
     .tape-sticker {
@@ -613,21 +652,20 @@
     .dresscode-text {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+      font-size: clamp(1.15rem, 4.5vw, 1.5rem);
       color: #3d2a3d;
-      line-height: 1.7;
+      line-height: 1.9;
       text-align: center;
       letter-spacing: 0.3px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
-    /* Пастельные кружочки */
     .color-swatches {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 18px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       padding: 0 4px;
     }
 
@@ -635,47 +673,53 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
 
-    .color-circle {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid rgba(60, 42, 60, 0.15);
+    .color-square {
+      width: 54px;
+      height: 54px;
+      border-radius: 6px;
+      border: 2px solid rgba(60, 42, 60, 0.12);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
     }
 
-    .color-circle:hover {
+    .color-square:hover {
       transform: scale(1.08);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
 
     .color-label {
       font-family: "Bad Script", cursive;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: #3d2a3d;
       opacity: 0.7;
       text-align: center;
       line-height: 1.2;
     }
 
-    /* Референсы — плотно прилегают к краям */
     .references-wrapper {
       width: 100%;
       margin: 0;
       padding: 0;
+      background: linear-gradient(145deg, #c9a8cc 0%, #b088b3 100%);
+      margin-left: -20px;
+      margin-right: -20px;
+      width: calc(100% + 40px);
+      padding-top: 20px;
+      padding-bottom: 0;
+      margin-top: 0;
     }
 
     .ref-subtitle {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.85rem, 3.2vw, 1.1rem);
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
       color: #fefad8;
       text-align: center;
       letter-spacing: 1px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       padding: 0 8px;
     }
 
@@ -705,8 +749,8 @@
     }
 
     .ref-image {
-      width: 140px;
-      height: 200px;
+      width: 170px;
+      height: 230px;
       object-fit: cover;
       flex-shrink: 0;
       display: block;
@@ -716,7 +760,6 @@
       margin: 0;
     }
 
-    /* Первое и последнее изображение прилегают к краям */
     .ref-image:first-child {
       margin-left: 0;
     }
@@ -740,7 +783,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.5rem, 5.5vw, 2rem);
+      font-size: clamp(2rem, 6.5vw, 2.6rem);
       color: #c9a8cc;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -750,58 +793,56 @@
     .wishes-text {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.9rem, 3.5vw, 1.15rem);
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
       color: #c9a8cc;
-      line-height: 1.7;
+      line-height: 1.9;
       text-align: justify;
       letter-spacing: 0.3px;
       padding: 0 4px;
     }
 
-    .envelope-image {
-      width: 240px;
-      max-width: 70%;
+    .gift-image {
+      width: min(90%, 420px);
       height: auto;
       display: block;
-      margin: 8px auto 0;
+      margin: 4px auto 0;
       opacity: 0.95;
-      max-height: 30vh;
     }
 
-    /* ============ СЕДЬМОЙ ЭКРАН: АНКЕТА ГОСТЯ ============ */
-    .guestbook-container {
+    /* ============ ОБЪЕДИНЕННЫЙ БЛОК: АНКЕТА + КОНТАКТЫ ============ */
+    .final-container {
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
+      gap: 30px;
     }
 
-    .guestbook-title {
+    .final-title {
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.5rem, 5.5vw, 2rem);
+      font-size: clamp(2rem, 6.5vw, 2.6rem);
       color: #fefad8;
       letter-spacing: 4px;
       text-transform: uppercase;
       text-align: center;
     }
 
-    .guestbook-subtitle {
+    .final-subtitle {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.9rem, 3.5vw, 1.15rem);
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
       color: #fefad8;
       text-align: center;
-      line-height: 1.6;
+      line-height: 1.7;
       letter-spacing: 0.4px;
       padding: 0 8px;
     }
 
-    .guest-form {
+    .final-form {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -818,7 +859,7 @@
     .form-label {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: #fefad8;
       letter-spacing: 0.5px;
     }
@@ -827,10 +868,10 @@
       background: transparent;
       border: none;
       border-bottom: 1px solid rgba(255, 250, 216, 0.6);
-      padding: 8px 4px;
+      padding: 10px 4px;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: #fefad8;
       outline: none;
       transition: border-color 0.2s ease;
@@ -843,13 +884,13 @@
 
     .form-textarea {
       resize: vertical;
-      min-height: 60px;
+      min-height: 70px;
     }
 
     .radio-group {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .radio-label {
@@ -858,7 +899,7 @@
       gap: 10px;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: #fefad8;
       cursor: pointer;
     }
@@ -867,8 +908,8 @@
     .drink-check input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
       border: 1.5px solid #fefad8;
       border-radius: 50%;
       background: transparent;
@@ -886,16 +927,16 @@
     .radio-label input[type="radio"]:checked::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 10px;
-      height: 10px;
+      top: 4px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
       background-color: #fefad8;
       border-radius: 50%;
     }
 
     .drink-check input[type="checkbox"] {
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .drink-check input[type="checkbox"]:checked {
@@ -907,15 +948,15 @@
       content: '✓';
       position: absolute;
       top: 0px;
-      left: 3px;
-      font-size: 12px;
+      left: 4px;
+      font-size: 15px;
       color: #fefad8;
     }
 
     .drinks-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      gap: 12px;
     }
 
     .drink-check {
@@ -924,7 +965,7 @@
       gap: 8px;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       color: #fefad8;
       cursor: pointer;
     }
@@ -932,19 +973,19 @@
     .submit-btn {
       background: #fefad8;
       border: none;
-      padding: 12px 40px;
+      padding: 16px 48px;
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       letter-spacing: 3px;
       color: #c9a8cc;
       cursor: pointer;
       transition: all 0.3s ease;
       width: auto;
-      min-width: 200px;
-      max-width: 280px;
-      margin: 8px auto 0;
+      min-width: 220px;
+      max-width: 300px;
+      margin: 10px auto 0;
       border-radius: 40px;
       display: block;
     }
@@ -955,34 +996,108 @@
       transform: scale(1.02);
     }
 
-    .date-marquee-wrapper {
+    /* ============ КОНТАКТЫ (внутри общего блока) ============ */
+    .final-contacts {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 250, 216, 0.25);
+    }
+
+    .final-contacts-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      font-style: italic;
+      font-size: clamp(1.8rem, 5.5vw, 2.2rem);
+      color: #fefad8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .final-contacts-text {
+      font-family: "Bad Script", cursive;
+      font-weight: 400;
+      font-size: clamp(1rem, 3.8vw, 1.3rem);
+      color: #fefad8;
+      text-align: center;
+      line-height: 1.6;
+      letter-spacing: 0.3px;
+      padding: 0 8px;
+    }
+
+    .contacts-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-family: "Bad Script", cursive;
+      font-weight: 400;
+      padding: 6px 16px;
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .contacts-label {
+      font-size: clamp(0.85rem, 3vw, 1rem);
+      color: #fefad8;
+      opacity: 0.85;
+      letter-spacing: 1px;
+    }
+
+    .contacts-number {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      color: #fefad8;
+    }
+
+    .contacts-number a {
+      color: #fefad8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contacts-number a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* ============ ДАТА МАРКИ ============ */
+    .date-marquee-wrapper {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
       position: relative;
-      margin-top: 8px;
+      margin-top: 10px;
       margin-bottom: 4px;
       overflow: hidden;
     }
 
     .date-marquee {
-      background-color: #fefad8;
       width: 100%;
+      background-color: #fefad8;
       overflow: hidden;
-      padding: 8px 0;
+      padding: 10px 0;
     }
 
     .date-marquee-track {
       display: flex;
       white-space: nowrap;
       will-change: transform;
-      animation: marqueeScroll 20s linear infinite;
+      animation: marqueeScroll 50s linear infinite;
       width: max-content;
+      padding: 0;
+      margin: 0;
     }
 
     .date-marquee-track span {
       font-family: "Cormorant Garamond", serif;
       font-weight: 500;
       color: #c9a8cc;
-      font-size: clamp(0.8rem, 2.8vw, 1rem);
+      font-size: clamp(1rem, 3.2vw, 1.2rem);
       text-transform: uppercase;
       letter-spacing: 4px;
       padding-right: 50px;
@@ -991,7 +1106,7 @@
 
     .final-wishes {
       text-align: center;
-      margin-top: 8px;
+      margin-top: 10px;
       width: 100%;
     }
 
@@ -999,7 +1114,7 @@
       font-family: "Playfair Display", serif;
       font-weight: 600;
       font-style: italic;
-      font-size: clamp(1.2rem, 4.5vw, 1.8rem);
+      font-size: clamp(1.6rem, 5.5vw, 2.2rem);
       color: #fefad8;
       letter-spacing: 2px;
       line-height: 1.3;
@@ -1008,7 +1123,7 @@
     .final-small {
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+      font-size: clamp(1.1rem, 4.2vw, 1.5rem);
       color: #fefad8;
       letter-spacing: 1px;
       margin-top: 6px;
@@ -1016,57 +1131,104 @@
 
     /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
     @media (max-width: 480px) {
-      .first-content { padding: 1.5vh 14px 0; }
+      .first-content {
+        padding: 6vh 14px 0;
+      }
+      .title-block {
+        margin-bottom: 20px;
+      }
       .dialog-container { gap: 6px; }
+      .dialog-area {
+        margin-bottom: 15px;
+      }
       .calendar-image-wrapper { max-width: 280px; }
-      .location-photo-wrapper { max-width: 280px; }
-      .screen-second { padding: 35px 14px 30px; }
-      .invitation-content { gap: 16px; }
+      .location-photo-wrapper { max-width: 300px; }
+      .screen-second { padding: 20px 14px 25px; }
+      .invitation-content { gap: 12px; padding-top: 15px; }
       .screen-third { padding: 40px 16px; }
-      .screen-fourth { padding: 30px 16px 40px; }
-      .screen-fifth { padding: 40px 16px 35px; }
+      .screen-fourth { padding: 35px 16px 45px; }
+      .screen-fifth { padding: 40px 16px 30px; }
       .screen-sixth { padding: 40px 16px 50px 16px; }
-      .screen-seventh { padding: 35px 16px 45px 16px; }
+      .screen-final { padding: 40px 16px 50px 16px; }
       .location-img { border-width: 2px; }
       .timing-section-title { margin-bottom: 14px; }
-      .white-rectangle { padding: 24px 14px 20px; }
+      .timing-item { padding: 12px 14px; gap: 10px; }
+      .white-rectangle { padding: 22px 14px 0; }
       .tape-sticker { width: 55px; top: -28px; }
-      .ref-image { width: 110px; height: 160px; }
+      .ref-image { width: 130px; height: 180px; }
       .dresscode-container { gap: 18px; }
-      .envelope-image { width: 170px; }
-      .drinks-grid { grid-template-columns: 1fr; gap: 8px; }
-      .submit-btn { min-width: 180px; padding: 10px 30px; font-size: 0.85rem; }
-      .guestbook-container { gap: 16px; }
-      .big-date { font-size: clamp(2.3rem, 9vw, 3.2rem); }
-      .location-content { gap: 14px; }
-      .invitation-greeting { font-size: clamp(1rem, 3.8vw, 1.4rem); }
-      .dresscode-text { font-size: clamp(0.85rem, 3.5vw, 1.1rem); }
-      .wishes-text { font-size: clamp(0.8rem, 3.2vw, 1rem); }
-      .marquee-ribbon { padding: 8px 0; }
-      .marquee-track span { font-size: clamp(0.6rem, 2vw, 0.75rem); }
+      .gift-image { width: min(90%, 280px); }
+      .drinks-grid { grid-template-columns: 1fr; gap: 10px; }
+      .submit-btn { min-width: 180px; padding: 14px 30px; font-size: 1rem; margin-bottom: 10px; }
+      .final-container { gap: 22px; }
+      .big-date { font-size: clamp(2.8rem, 11vw, 3.8rem); }
+      .location-content { gap: 16px; }
+      .invitation-greeting { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
+      .dresscode-text { font-size: clamp(1rem, 4vw, 1.25rem); }
+      .wishes-text { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
+      .kids-marquee { padding: 8px 0; }
+      .kids-marquee-track span { font-size: clamp(0.8rem, 2.5vw, 0.95rem); padding: 0 30px 0 0; }
       .scroll-container { padding: 0; }
       .images-row { padding: 0; }
-      .full-width-heart { max-width: 400px; padding: 0 8px; }
-      .timing-item { padding: 10px 14px; gap: 10px; }
-      .location-btn { padding: 10px 24px; font-size: 0.85rem; }
-      .color-circle { width: 36px; height: 36px; }
-      .color-swatches { gap: 10px; }
-      .color-label { font-size: 0.55rem; }
+      .full-width-heart { max-width: 420px; padding: 0 8px; }
+      .location-btn { padding: 12px 26px; font-size: 1rem; }
+      .color-square { width: 44px; height: 44px; }
+      .color-swatches { gap: 12px; }
+      .color-label { font-size: 0.65rem; }
+      .references-wrapper { 
+        margin-left: -14px; 
+        margin-right: -14px; 
+        width: calc(100% + 28px); 
+      }
+      .final-form { gap: 16px; }
+      .hero-image-section {
+        padding: 0 12px 0;
+      }
+      .kids-image { max-height: none; }
+      .final-subtitle { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
+      .contacts-item { padding: 6px 12px; }
+      .contacts-number { font-size: clamp(1rem, 3.8vw, 1.2rem); }
+      .contacts-label { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
+      .final-contacts { gap: 12px; padding-top: 6px; }
+      .final-contacts-title { font-size: clamp(1.5rem, 4.5vw, 1.8rem); }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
-      .screen-second { padding: 45px 22px 38px; }
-      .invitation-content { gap: 20px; }
-      .screen-third { padding: 50px 22px; }
+      .screen-second { padding: 25px 22px 28px; }
+      .invitation-content { gap: 12px; padding-top: 18px; }
+      .screen-third { padding: 45px 22px; }
       .screen-fourth { padding: 40px 22px 50px; }
-      .screen-fifth { padding: 50px 22px 45px; }
+      .screen-fifth { padding: 45px 22px 30px; }
       .screen-sixth { padding: 45px 22px 55px 22px; }
-      .screen-seventh { padding: 40px 22px 50px 22px; }
-      .location-photo-wrapper { max-width: 340px; }
-      .ref-image { width: 130px; height: 185px; }
+      .screen-final { padding: 45px 22px 55px 22px; }
+      .location-photo-wrapper { max-width: 360px; }
+      .ref-image { width: 150px; height: 205px; }
       .calendar-image-wrapper { max-width: 380px; }
       .dresscode-container { padding: 0; }
-      .color-circle { width: 40px; height: 40px; }
+      .color-square { width: 48px; height: 48px; }
+      .references-wrapper { 
+        margin-left: -22px; 
+        margin-right: -22px; 
+        width: calc(100% + 44px); 
+      }
+      .gift-image { width: min(90%, 340px); }
+      .submit-btn { margin-bottom: 12px; }
+      .final-container { gap: 26px; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .primary-title {
+        font-size: 5.5rem;
+      }
+      .dialog-text {
+        font-size: 1.4rem;
+      }
+      .location-photo-wrapper {
+        max-width: 450px;
+      }
+      .calendar-image-wrapper {
+        max-width: 450px;
+      }
     }
 
     @media (min-width: 768px) {
@@ -1074,26 +1236,33 @@
         max-width: 620px; 
         box-shadow: 0 0 50px rgba(60, 42, 60, 0.05); 
         border-radius: 32px;
-        height: 95vh;
+        min-height: 95vh;
       }
       body { 
         background: #fefad8; 
         padding: 20px 0; 
       }
-      .ref-image { width: 160px; height: 225px; }
-      .envelope-image { width: 280px; }
-      .screen-second { padding: 55px 32px 45px; }
-      .invitation-content { gap: 24px; }
-      .screen-third { padding: 70px 32px; }
+      .ref-image { width: 190px; height: 260px; }
+      .gift-image { width: min(90%, 420px); }
+      .screen-second { padding: 30px 32px 35px; }
+      .invitation-content { gap: 14px; padding-top: 20px; }
+      .screen-third { padding: 55px 32px; }
       .screen-fourth { padding: 50px 32px 60px; }
-      .screen-fifth { padding: 60px 32px 55px; }
+      .screen-fifth { padding: 55px 32px 40px; }
       .screen-sixth { padding: 55px 32px 65px 32px; }
-      .screen-seventh { padding: 45px 32px 55px 32px; }
-      .location-content { gap: 20px; }
+      .screen-final { padding: 50px 32px 60px 32px; }
+      .location-content { gap: 22px; }
       .dresscode-container { gap: 24px; }
       .calendar-image-wrapper { max-width: 420px; }
-      .submit-btn { min-width: 220px; padding: 14px 50px; }
-      .color-circle { width: 50px; height: 50px; }
+      .submit-btn { min-width: 240px; padding: 18px 54px; margin-bottom: 15px; }
+      .color-square { width: 58px; height: 58px; }
+      .references-wrapper { 
+        margin-left: -32px; 
+        margin-right: -32px; 
+        width: calc(100% + 64px); 
+      }
+      .final-container { gap: 30px; }
+      .final-contacts { padding-top: 20px; }
     }
   </style>
 </head>
@@ -1114,41 +1283,47 @@
         </div>
       </div>
     </div>
-    <div class="hero-image-section fade-up-item delay-3">
+    <div class="hero-image-section hero-fade delay-3">
       <div class="full-width-heart">
         <img src="дети.png" alt="Счастливые дети" class="kids-image" onerror="this.src='https://placehold.co/600x400/fefad8/c9a8cc?text=👶+Дети'; this.onerror=null;">
       </div>
     </div>
-    <div class="marquee-ribbon fade-up-item delay-4">
-      <div class="marquee-track">
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
-        <span>вы приглашены</span>
+    <div class="kids-marquee fade-up-item delay-4">
+      <div class="kids-marquee-track">
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
+        <span>ВЫ ПРИГЛАШЕНЫ</span>
       </div>
     </div>
   </section>
 
   <!-- ЭКРАН 2: Приглашение -->
   <section class="screen screen-second">
-    <div class="invitation-content fade-up-item">
+    <div class="invitation-content fade-up-item delay-1">
       <div class="invitation-greeting">
         <p>Дорогие друзья и близкие,</p>
         <p>мы приглашаем вас разделить</p>
         <p>с нами наше свадебное торжество,</p>
         <p>которое состоится</p>
       </div>
-      <div class="big-date fade-up-item delay-1">26.08.2026</div>
+      <div class="big-date fade-up-item delay-2">26.08.2026</div>
     </div>
-    <div class="calendar-image-wrapper fade-up-item delay-2"><img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/fefad8/c9a8cc?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;"></div>
+    <div class="calendar-image-wrapper fade-up-item delay-3">
+      <img src="календарь.png" alt="Календарь Август 2026" class="calendar-img" onerror="this.src='https://placehold.co/500x560/fefad8/c9a8cc?text=🗓️+26+АВГУСТА+2026'; this.onerror=null;">
+    </div>
   </section>
 
   <!-- ЭКРАН 3: Локация -->
@@ -1202,26 +1377,25 @@
         <img src="скотч.png" alt="скотч" class="tape-sticker" onerror="this.style.display='none';">
         <div class="dresscode-text">Мы стараемся сделать праздник красивым и стильным! Будем очень рады, если вы поддержите дресс-код нашей свадьбы и выберете пастельные оттенки для своих нарядов.</div>
         
-        <!-- Пастельные кружочки -->
         <div class="color-swatches">
           <div class="color-swatch">
-            <div class="color-circle" style="background: #FFD1DC;"></div>
+            <div class="color-square" style="background: #FFD1DC;"></div>
             <span class="color-label">Розовый</span>
           </div>
           <div class="color-swatch">
-            <div class="color-circle" style="background: #B5EAD7;"></div>
+            <div class="color-square" style="background: #B5EAD7;"></div>
             <span class="color-label">Мятный</span>
           </div>
           <div class="color-swatch">
-            <div class="color-circle" style="background: #C9E4FF;"></div>
+            <div class="color-square" style="background: #C9E4FF;"></div>
             <span class="color-label">Голубой</span>
           </div>
           <div class="color-swatch">
-            <div class="color-circle" style="background: #F7DC6F;"></div>
+            <div class="color-square" style="background: #F7DC6F;"></div>
             <span class="color-label">Лимонный</span>
           </div>
           <div class="color-swatch">
-            <div class="color-circle" style="background: #E8D5B7;"></div>
+            <div class="color-square" style="background: #E8D5B7;"></div>
             <span class="color-label">Шампань</span>
           </div>
         </div>
@@ -1230,11 +1404,11 @@
           <div class="ref-subtitle">Примеры нарядов</div>
           <div class="scroll-container">
             <div class="images-row">
-              <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/140x200/FFD1DC/3d2a3d?text=🌸';">
-              <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/140x200/B5EAD7/3d2a3d?text=🌿';">
-              <img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/140x200/C9E4FF/3d2a3d?text=💎';">
-              <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/140x200/F7DC6F/3d2a3d?text=🌼';">
-              <img src="5.jpg" class="ref-image" onerror="this.src='https://placehold.co/140x200/E8D5B7/3d2a3d?text=🥂';">
+              <img src="1.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/FFD1DC/3d2a3d?text=🌸';">
+              <img src="2.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/B5EAD7/3d2a3d?text=🌿';">
+              <img src="3.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/C9E4FF/3d2a3d?text=💎';">
+              <img src="4.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/F7DC6F/3d2a3d?text=🌼';">
+              <img src="5.jpg" class="ref-image" onerror="this.src='https://placehold.co/170x230/E8D5B7/3d2a3d?text=🥂';">
             </div>
           </div>
         </div>
@@ -1247,17 +1421,17 @@
     <div class="wishes-container">
       <div class="wishes-title fade-up-item delay-1">Пожелания</div>
       <div class="wishes-text fade-up-item delay-2">Можете не переживать по поводу подарка, мы будем благодарны вашим пожеланиям в конвертах! Многие считают важной деталью дарить на свадьбу цветы, но у нас дома не найдется столько ваз! Поэтому можете заменить цветы на любую альтернативу (по желанию). И помните, самый ценный подарок для нас – ваше присутствие!</div>
-      <div class="fade-up-item delay-3"><img src="конверт.png" alt="Конверт для пожеланий" class="envelope-image" onerror="this.src='https://placehold.co/400x300/c9a8cc/fefad8?text=✉️';"></div>
+      <div class="fade-up-item delay-3"><img src="подарок.png" alt="Подарок" class="gift-image" onerror="this.src='https://placehold.co/400x300/c9a8cc/fefad8?text=🎁';"></div>
     </div>
   </section>
 
-  <!-- ЭКРАН 7: АНКЕТА ГОСТЯ -->
-  <section class="screen screen-seventh">
-    <div class="guestbook-container">
-      <div class="guestbook-title fade-up-item delay-1">Анкета гостя</div>
-      <div class="guestbook-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
+  <!-- ОБЪЕДИНЕННЫЙ ФИНАЛЬНЫЙ БЛОК: АНКЕТА ГОСТЯ + КОНТАКТЫ -->
+  <section class="screen screen-final">
+    <div class="final-container">
+      <div class="final-title fade-up-item delay-1">Анкета гостя</div>
+      <div class="final-subtitle fade-up-item delay-2">Пожалуйста, подтвердите своё присутствие до 1 августа 2026. Это поможет нам в организации праздника!</div>
 
-      <form class="guest-form fade-up-item delay-3" id="guestForm">
+      <form class="final-form fade-up-item delay-3" id="guestForm">
         <div class="form-group">
           <label class="form-label">Имя и фамилия</label>
           <input type="text" class="form-input" placeholder="" required>
@@ -1292,6 +1466,7 @@
         <button type="button" class="submit-btn" onclick="submitForm()">Отправить</button>
       </form>
 
+      <!-- ЛЕНТА С ДАТОЙ -->
       <div class="date-marquee-wrapper fade-up-item delay-4">
         <div class="date-marquee">
           <div class="date-marquee-track">
@@ -1300,9 +1475,25 @@
         </div>
       </div>
 
-      <div class="final-wishes fade-up-item delay-5">
-        <div class="final-big">Мы вас очень ждём</div>
-        <div class="final-small">Ваши Артур и Таня</div>
+      <!-- КОНТАКТЫ (часть общего блока) -->
+      <div class="final-contacts fade-up-item delay-5">
+        <div class="final-contacts-title">Контакты</div>
+        <div class="final-contacts-text">Если у вас возникли вопросы, свяжитесь с нами:</div>
+        
+        <div class="contacts-item">
+          <span class="contacts-label">Невеста</span>
+          <span class="contacts-number"><a href="tel:+375291234567">+375 (29) 123-45-67</a></span>
+        </div>
+        
+        <div class="contacts-item">
+          <span class="contacts-label">Жених</span>
+          <span class="contacts-number"><a href="tel:+375297654321">+375 (29) 765-43-21</a></span>
+        </div>
+
+        <div class="final-wishes" style="margin-top: 16px;">
+          <div class="final-big">Мы вас очень ждём</div>
+          <div class="final-small">Ваши Антон и Евгения</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1310,7 +1501,6 @@
 
 <script>
   (function() {
-    // Анимация появления при прокрутке
     const revealItems = document.querySelectorAll('.fade-up-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { 
@@ -1322,7 +1512,17 @@
     
     revealItems.forEach(el => observer.observe(el));
 
-    // Отдельный наблюдатель для timing-item
+    const heroItems = document.querySelectorAll('.hero-fade');
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    
+    heroItems.forEach(el => heroObserver.observe(el));
+
     const timingItems = document.querySelectorAll('.timing-item');
     const timingObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1334,13 +1534,18 @@
     
     timingItems.forEach(el => timingObserver.observe(el));
     
-    // Показываем элементы, которые уже видны
     setTimeout(() => { 
       revealItems.forEach(el => { 
         const rect = el.getBoundingClientRect(); 
         if (rect.top < window.innerHeight - 60 && rect.bottom > 40) { 
           el.classList.add('revealed'); 
         } 
+      });
+      heroItems.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60 && rect.bottom > 40) {
+          el.classList.add('revealed');
+        }
       });
       timingItems.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -1350,7 +1555,7 @@
       });
     }, 250);
 
-    function ensureMarquee(containerSelector, trackSelector, minChildren = 10) {
+    function ensureMarquee(containerSelector, trackSelector, minChildren = 12) {
       const container = document.querySelector(containerSelector);
       if (!container) return;
       const track = container.querySelector(trackSelector);
@@ -1375,7 +1580,7 @@
       window.addEventListener('resize', checkAndClone);
     }
 
-    ensureMarquee('.marquee-ribbon', '.marquee-track');
+    ensureMarquee('.kids-marquee', '.kids-marquee-track');
     ensureMarquee('.date-marquee', '.date-marquee-track', 8);
 
     function setAppHeight() {
@@ -1385,18 +1590,10 @@
     window.addEventListener('resize', setAppHeight);
     window.addEventListener('orientationchange', setAppHeight);
     setAppHeight();
-    
-    const style = document.createElement('style');
-    style.textContent = `
-      .screen-first, .screen-second {
-        height: var(--app-height, 100vh);
-      }
-    `;
-    document.head.appendChild(style);
   })();
 
   function submitForm() {
-    const name = document.querySelector('.guest-form .form-input')?.value;
+    const name = document.querySelector('.final-form .form-input')?.value;
     const attendance = document.querySelector('input[name="attendance"]:checked')?.value;
     if (!name || !attendance) {
       alert('Пожалуйста, заполните имя и выберите вариант присутствия');
