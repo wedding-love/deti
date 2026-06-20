@@ -118,7 +118,8 @@
     }
 
     .screen-first {
-      min-height: var(--app-height, 100vh);
+      min-height: 80vh;
+      min-height: 80dvh;
       display: flex;
       flex-direction: column;
       background-color: #fefad8;
@@ -185,21 +186,21 @@
       flex-direction: column;
       justify-content: center;
       width: 100%;
-      padding: 8vh 24px 0;
+      padding: 4vh 24px 0;
       text-align: center;
     }
 
     .title-block {
       text-align: center;
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 16px;
     }
 
     .sub-title {
       display: block;
       font-family: "Bad Script", cursive;
       font-weight: 400;
-      font-size: clamp(1.3rem, 5vw, 1.9rem);
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
       color: #c9a8cc;
       text-transform: none;
       letter-spacing: 2px;
@@ -211,7 +212,7 @@
       display: block;
       font-family: "Caveat", "Comic Sans MS", cursive;
       font-weight: 400;
-      font-size: clamp(3.8rem, 15vw, 6.5rem);
+      font-size: clamp(3.2rem, 12vw, 5.5rem);
       color: #c9a8cc;
       line-height: 0.9;
       letter-spacing: 1px;
@@ -226,7 +227,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .dialog-container {
@@ -243,7 +244,7 @@
       font-family: "Marck Script", "Brush Script MT", cursive;
       font-weight: 400;
       font-style: italic;
-      font-size: clamp(1.1rem, 4.2vw, 1.6rem);
+      font-size: clamp(0.95rem, 3.5vw, 1.4rem);
       color: #c9a8cc;
       line-height: 1.3;
       letter-spacing: 0.3px;
@@ -264,7 +265,7 @@
     }
 
     .hero-image-section {
-      flex: 1.8;
+      flex: 1.2;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -275,7 +276,7 @@
 
     .full-width-heart {
       width: 100%;
-      max-width: 540px;
+      max-width: 440px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -305,7 +306,7 @@
       margin-right: calc(50% - 50vw);
       overflow: hidden;
       background: #c9a8cc;
-      padding: 12px 0;
+      padding: 10px 0;
       margin-top: 0;
       flex-shrink: 0;
       position: relative;
@@ -325,7 +326,7 @@
     .kids-marquee-track span {
       color: #fefad8;
       font-family: "Marck Script", cursive;
-      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       padding: 0 40px 0 0;
       white-space: nowrap;
       text-transform: uppercase;
@@ -1002,7 +1003,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 8px;
       padding-top: 10px;
       border-top: 1px solid rgba(255, 250, 216, 0.25);
     }
@@ -1029,6 +1030,15 @@
       padding: 0 8px;
     }
 
+    .contacts-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 400px;
+    }
+
     .contacts-item {
       display: flex;
       flex-direction: column;
@@ -1037,9 +1047,8 @@
       font-family: "Bad Script", cursive;
       font-weight: 400;
       padding: 6px 16px;
-      width: 100%;
-      max-width: 320px;
       text-align: center;
+      flex: 1;
     }
 
     .contacts-label {
@@ -1132,14 +1141,14 @@
     /* ============ АДАПТИВНЫЕ МЕДИА-ЗАПРОСЫ ============ */
     @media (max-width: 480px) {
       .first-content {
-        padding: 6vh 14px 0;
+        padding: 3vh 14px 0;
       }
       .title-block {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
       .dialog-container { gap: 6px; }
       .dialog-area {
-        margin-bottom: 15px;
+        margin-bottom: 8px;
       }
       .calendar-image-wrapper { max-width: 280px; }
       .location-photo-wrapper { max-width: 300px; }
@@ -1166,11 +1175,11 @@
       .invitation-greeting { font-size: clamp(1.2rem, 4.5vw, 1.6rem); }
       .dresscode-text { font-size: clamp(1rem, 4vw, 1.25rem); }
       .wishes-text { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
-      .kids-marquee { padding: 8px 0; }
-      .kids-marquee-track span { font-size: clamp(0.8rem, 2.5vw, 0.95rem); padding: 0 30px 0 0; }
+      .kids-marquee { padding: 6px 0; }
+      .kids-marquee-track span { font-size: clamp(0.7rem, 2vw, 0.85rem); padding: 0 25px 0 0; }
       .scroll-container { padding: 0; }
       .images-row { padding: 0; }
-      .full-width-heart { max-width: 420px; padding: 0 8px; }
+      .full-width-heart { max-width: 360px; padding: 0 8px; }
       .location-btn { padding: 12px 26px; font-size: 1rem; }
       .color-square { width: 44px; height: 44px; }
       .color-swatches { gap: 12px; }
@@ -1186,14 +1195,33 @@
       }
       .kids-image { max-height: none; }
       .final-subtitle { font-size: clamp(0.95rem, 3.8vw, 1.15rem); }
-      .contacts-item { padding: 6px 12px; }
-      .contacts-number { font-size: clamp(1rem, 3.8vw, 1.2rem); }
-      .contacts-label { font-size: clamp(0.75rem, 2.8vw, 0.9rem); }
-      .final-contacts { gap: 12px; padding-top: 6px; }
+      .contacts-row {
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .contacts-item {
+        padding: 4px 8px;
+        flex: 1;
+        min-width: 80px;
+      }
+      .contacts-number {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+      }
+      .contacts-label {
+        font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+      }
+      .final-contacts { gap: 6px; padding-top: 6px; }
       .final-contacts-title { font-size: clamp(1.5rem, 4.5vw, 1.8rem); }
     }
 
     @media (min-width: 481px) and (max-width: 767px) {
+      .screen-first {
+        min-height: 75vh;
+        min-height: 75dvh;
+      }
+      .first-content {
+        padding: 3.5vh 22px 0;
+      }
       .screen-second { padding: 25px 22px 28px; }
       .invitation-content { gap: 12px; padding-top: 18px; }
       .screen-third { padding: 45px 22px; }
@@ -1214,14 +1242,21 @@
       .gift-image { width: min(90%, 340px); }
       .submit-btn { margin-bottom: 12px; }
       .final-container { gap: 26px; }
+      .contacts-row { gap: 20px; }
+      .full-width-heart { max-width: 400px; }
+      .kids-marquee-track span { font-size: clamp(0.8rem, 2.2vw, 0.95rem); }
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
+      .screen-first {
+        min-height: 75vh;
+        min-height: 75dvh;
+      }
       .primary-title {
-        font-size: 5.5rem;
+        font-size: 5rem;
       }
       .dialog-text {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
       }
       .location-photo-wrapper {
         max-width: 450px;
@@ -1229,6 +1264,7 @@
       .calendar-image-wrapper {
         max-width: 450px;
       }
+      .full-width-heart { max-width: 460px; }
     }
 
     @media (min-width: 768px) {
@@ -1263,6 +1299,12 @@
       }
       .final-container { gap: 30px; }
       .final-contacts { padding-top: 20px; }
+      .contacts-row { gap: 40px; }
+      .full-width-heart { max-width: 480px; }
+      .screen-first {
+        min-height: 70vh;
+        min-height: 70dvh;
+      }
     }
   </style>
 </head>
@@ -1480,14 +1522,24 @@
         <div class="final-contacts-title">Контакты</div>
         <div class="final-contacts-text">Если у вас возникли вопросы, свяжитесь с нами:</div>
         
-        <div class="contacts-item">
-          <span class="contacts-label">Невеста</span>
-          <span class="contacts-number"><a href="tel:+375291234567">+375 (29) 123-45-67</a></span>
+        <!-- ЖЕНИХ И НЕВЕСТА В ОДНУ СТРОКУ -->
+        <div class="contacts-row">
+          <div class="contacts-item">
+            <span class="contacts-label">Невеста</span>
+          </div>
+          <div class="contacts-item">
+            <span class="contacts-label">Жених</span>
+          </div>
         </div>
         
-        <div class="contacts-item">
-          <span class="contacts-label">Жених</span>
-          <span class="contacts-number"><a href="tel:+375297654321">+375 (29) 765-43-21</a></span>
+        <!-- НОМЕРА В ОДНУ СТРОКУ -->
+        <div class="contacts-row">
+          <div class="contacts-item">
+            <span class="contacts-number"><a href="tel:+375291234567">+375 (29) 123-45-67</a></span>
+          </div>
+          <div class="contacts-item">
+            <span class="contacts-number"><a href="tel:+375297654321">+375 (29) 765-43-21</a></span>
+          </div>
         </div>
 
         <div class="final-wishes" style="margin-top: 16px;">
@@ -1501,6 +1553,7 @@
 
 <script>
   (function() {
+    // Настройка Intersection Observer для анимации появления
     const revealItems = document.querySelectorAll('.fade-up-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { 
@@ -1508,7 +1561,7 @@
           entry.target.classList.add('revealed'); 
         } 
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     
     revealItems.forEach(el => observer.observe(el));
 
@@ -1519,7 +1572,7 @@
           entry.target.classList.add('revealed');
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     
     heroItems.forEach(el => heroObserver.observe(el));
 
@@ -1530,30 +1583,9 @@
           entry.target.classList.add('revealed');
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
     
     timingItems.forEach(el => timingObserver.observe(el));
-    
-    setTimeout(() => { 
-      revealItems.forEach(el => { 
-        const rect = el.getBoundingClientRect(); 
-        if (rect.top < window.innerHeight - 60 && rect.bottom > 40) { 
-          el.classList.add('revealed'); 
-        } 
-      });
-      heroItems.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60 && rect.bottom > 40) {
-          el.classList.add('revealed');
-        }
-      });
-      timingItems.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60 && rect.bottom > 40) {
-          el.classList.add('revealed');
-        }
-      });
-    }, 250);
 
     function ensureMarquee(containerSelector, trackSelector, minChildren = 12) {
       const container = document.querySelector(containerSelector);
